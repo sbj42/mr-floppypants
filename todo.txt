@@ -1,0 +1,15 @@
+- more actors (octopus, ...), some small
+- spaces that only small actors can go
+- welcome awning at golf
+
+- better geom classes
+- register things
+- declare things in non-code files
+- modules that connect together
+
+- in-game debug tools: warp to place, reset but stay where you are
+- doors, transition to other worlds (rocket)
+- shrink/grow actor
+- space backdrop
+- day/night cycle
+- weather
