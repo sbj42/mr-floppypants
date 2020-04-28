@@ -1,5 +1,6 @@
 # Mr. Floppypants
 
+[![Node.js CI](https://github.com/sbj42/mr-floppypants/workflows/Node.js%20CI/badge.svg)](https://github.com/sbj42/mr-floppypants/actions?query=workflow%3A%22Node.js+CI%22)
 [![License](https://img.shields.io/github/license/sbj42/mr-floppypants.svg)](https://github.com/sbj42/mr-floppypants)
 
 #### Ragdoll physics game
