@@ -33,7 +33,7 @@ export class EventHelper {
         const listeners = this.listenerMap[event];
         if (listeners) {
             for (const listener of listeners) {
-                listener.apply(null, args);
+                listener(...args);
             }
         }
     }

@@ -113,7 +113,7 @@ export class BodyImpl implements Body {
         for (const shape of this.p2body.shapes) {
             const {vertices, radius} = shape as any;
             if (vertices) {
-                const points = vertices.map((vertex: number[], index: number) => {
+                const points = vertices.map((vertex: [number, number], index: number) => {
                     p2.vec2.toGlobalFrame(V1, vertex, shape.position, shape.angle);
                     p2.vec2.toGlobalFrame(V1, V1, this.p2body.position, this.p2body.angle);
                     return new Point(V1[0], V1[1]);

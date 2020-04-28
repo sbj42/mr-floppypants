@@ -210,7 +210,7 @@ export class Game {
         this._toastUI.addAchievement(a);
         const aList: string[] = [];
         for (const x in this._achievements) {
-            if (this._achievements.hasOwnProperty(x)) {
+            if (Object.prototype.hasOwnProperty.call(this._achievements, x)) {
                 aList.push(x);
             }
         }
@@ -222,7 +222,7 @@ export class Game {
     forEachAchievement(callback: (achievement: Achievement, collected: boolean) => void) {
         const achievements: Achievement[] = [];
         for (const id in this._allAchievements) {
-            if (this._allAchievements.hasOwnProperty(id)) {
+            if (Object.prototype.hasOwnProperty.call(this._allAchievements, id)) {
                 achievements.push(this._allAchievements[id]);
             }
         }
@@ -243,7 +243,7 @@ export class Game {
 
     resetAll() {
         for (const id in this._achievements) {
-            if (this._achievements.hasOwnProperty(id)) {
+            if (Object.prototype.hasOwnProperty.call(this._achievements, id)) {
                 delete this._achievements[id];
             }
         }

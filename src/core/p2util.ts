@@ -1,7 +1,7 @@
 import { Point, Rect, Polygon } from './geometry';
 import * as p2 from 'p2';
 
-export function p2point(point: Point) {
+export function p2point(point: Point): [number, number] {
     return [point.x, point.y];
 }
 

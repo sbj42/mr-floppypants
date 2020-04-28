@@ -29,7 +29,7 @@ export class Color extends Paint {
         this.a = a;
     }
 
-    static check(r: number, g: number, b: number, a: number = 1) {
+    static check(r: number, g: number, b: number, a = 1) {
         if (!isFinite(r) || r < 0 || r > 255
             || !isFinite(g) || g < 0 || g > 255
             || !isFinite(b) || b < 0 || b > 255
@@ -320,7 +320,7 @@ export class Graphics {
         return this;
     }
 
-    globalAlpha(alpha: number = 1) {
+    globalAlpha(alpha = 1) {
         if (!isFinite(alpha) || alpha < 0 || alpha > 1) {
             throw new Error(`invalid alpha ${alpha}`);
         }

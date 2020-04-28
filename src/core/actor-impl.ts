@@ -15,7 +15,7 @@ export class ActorImpl implements Actor {
 
     private _dragBody: Body | undefined;
     private _dragWindow: Window | undefined;
-    private _holding: ({body: BodyImpl, constraint: p2.LockConstraint} | undefined)[] = [];
+    private _holding: ({body: BodyImpl; constraint: p2.LockConstraint} | undefined)[] = [];
     private _releasing: number | undefined;
 
     private readonly _eventHelper = new EventHelper();

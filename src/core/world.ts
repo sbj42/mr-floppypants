@@ -64,11 +64,11 @@ export class World {
         BODYTYPE_GROUND,
     ];
 
-    private _lastTime: number = 0;
+    private _lastTime = 0;
 
     private readonly _backdrops: Drawable[] = [];
     private readonly _namedLocations: {[name: string]: Point} = {};
-    private _startLocationName: string = '';
+    private _startLocationName = '';
     private _startActorGenerator: ActorGenerator | undefined;
 
     private readonly _bodies: BodyImpl[] = [];
@@ -300,6 +300,7 @@ export class World {
             position: p2point(location),
         });
         const body = new BodyImpl(this, p2body, param);
+        // eslint-disable-next-line @typescript-eslint/camelcase
         (p2body as any)._fp_body = body;
         this._bodies.push(body);
         this._p2world.addBody(p2body);
@@ -320,7 +321,7 @@ export class World {
          */
 
         const adjustPoint = (point: Point) => {
-            const ret = [point.x - initialAnchor.x, point.y - initialAnchor.y];
+            const ret: [number, number] = [point.x - initialAnchor.x, point.y - initialAnchor.y];
             if (flip) {
                 ret[0] = -ret[0];
             }
@@ -352,7 +353,7 @@ export class World {
             throw new Error(`unexpected bounds type`);
         }
         p2body.angle = angle * Math.PI / 180;
-        const diff = [p2body.position[0] - location.x, p2body.position[1] - location.y];
+        const diff: [number, number] = [p2body.position[0] - location.x, p2body.position[1] - location.y];
         p2.vec2.rotate(diff, diff, angle * Math.PI / 180);
         p2body.position = [location.x + diff[0], location.y + diff[1]];
         const collisionGroup = this._collisionGroup(bodyType);
@@ -446,7 +447,7 @@ export class World {
         return actor;
     }
 
-    actorHitTest(x: number, y: number): {actor: Actor, body: Body} | undefined {
+    actorHitTest(x: number, y: number): {actor: Actor; body: Body} | undefined {
         for (const actor of this._actors) {
             const body = actor.hitTest(this._p2world, x, y);
             if (body) {
@@ -522,7 +523,7 @@ export class World {
                     // p2.vec2.subtract(liftForce, waterAABB.lowerBound, centerOfBouyancy);
                     // p2.vec2.scale(liftForce, liftForce, areaUnderWater * k);
                     // liftForce[0] = 0;
-                    const liftForce = [
+                    const liftForce: [number, number] = [
                         0,
                         - DEFAULT_GRAVITY * 1.15 * p2body.mass / p2body.shapes.length / density,
                     ];

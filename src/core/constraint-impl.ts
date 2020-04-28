@@ -16,7 +16,7 @@ export class RevoluteConstraintImpl implements RevoluteConstraint {
     }
 
     get position() {
-        const { bodyA, pivotA } = this.p2constraint;
+        const { bodyA, pivotA } = this.p2constraint as any;
         p2.vec2.rotate(V1, pivotA, bodyA.angle);
         p2.vec2.add(V1, V1, bodyA.position);
         return new Point(V1[0], V1[1]);
@@ -37,7 +37,7 @@ export class RevoluteConstraintImpl implements RevoluteConstraint {
     }
 
     movePivot2(x: number, y: number) {
-        p2.vec2.copy(this.p2constraint.pivotB, [x, y]);
+        p2.vec2.copy((this.p2constraint as any).pivotB, [x, y]);
         return this;
     }
 

@@ -1,4 +1,4 @@
-const pngRequire = require.context('..', true, /\.png$/);
+const pngRequire = require; // .context('..', true, /\.png$/);
 
 interface ImageCache {
     [key: string]: HTMLImageElement;

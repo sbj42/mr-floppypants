@@ -18,3 +18,11 @@ Explore the world by dragging Mr. Floppypants around:
 * Totally wreck the dinner table
 
 ![Example Image](https://raw.githubusercontent.com/sbj42/mr-floppypants/master/promo/dinner.png)
+
+## Running it locally
+
+~~~
+npm install
+npm start
+~~~
+
