@@ -6,7 +6,7 @@
 
 [Play online now!](https://sbj42.github.io/projects/mr-floppypants/)
 
-![Example Image](https://raw.githubusercontent.com/sbj42/mr-floppypants/master/promo/hello.png)
+![Example Image](promo/hello.png?raw=true)
 
 ## Instructions
 
@@ -17,7 +17,7 @@ Explore the world by dragging Mr. Floppypants around:
 * Drive the car
 * Totally wreck the dinner table
 
-![Example Image](https://raw.githubusercontent.com/sbj42/mr-floppypants/master/promo/dinner.png)
+![Example Image](promo/dinner.png?raw=true)
 
 ## Running it locally
 
