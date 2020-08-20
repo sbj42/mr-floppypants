@@ -300,7 +300,6 @@ export class World {
             position: p2point(location),
         });
         const body = new BodyImpl(this, p2body, param);
-        // eslint-disable-next-line @typescript-eslint/camelcase
         (p2body as any)._fp_body = body;
         this._bodies.push(body);
         this._p2world.addBody(p2body);
