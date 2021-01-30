@@ -23,11 +23,11 @@ const STATE_TITLE = 'title';
 const STATE_TITLE_FADING = 'title-fading';
 const STATE_PLAY = 'play';
 
-const CURSOR_POINT_IMAGE = require('./images/cursor-point.png');
-const CURSOR_GRABBING_IMAGE = require('./images/cursor-grabbing.png');
-const CURSOR_GRAB_IMAGE = require('./images/cursor-grab.png');
+import CURSOR_POINT_IMAGE from './images/cursor-point.png';
+import CURSOR_GRABBING_IMAGE from './images/cursor-grabbing.png';
+import CURSOR_GRAB_IMAGE from './images/cursor-grab.png';
 
-const OPTIONS_IMAGE = require('./images/options.png');
+import OPTIONS_IMAGE from './images/options.png';
 const OPTIONS_ROTATE_RAMPUP = 0.1;
 const OPTIONS_ROTATE_SPEED = 700;
 

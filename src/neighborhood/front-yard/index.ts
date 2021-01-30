@@ -12,8 +12,14 @@ import {
 import { PolygonDrawable } from '../../core/util/polygon-drawable';
 import { GROUND_GRADIENT } from '../ground';
 
-export const grass = new BodyFactory(require('./images/grass1.png'), '0,25 0,125 500,125 500,25', 0, 25)
-    .imageFront(require('./images/grass2.png'));
+import IMG_GRASS1 from './images/grass1.png';
+import IMG_GRASS2 from './images/grass2.png';
+
+export const grass = new BodyFactory(IMG_GRASS1, '0,25 0,125 500,125 500,25', 0, 25)
+    .imageFront(IMG_GRASS2);
+
+import IMG_TREE1_1 from './images/tree1-1.png';
+import IMG_TREE1_2 from './images/tree1-2.png';
 
 export const tree1 = new BodyFactory(undefined, [`
         325,328 353,265 409,260 423,213
@@ -24,21 +30,30 @@ export const tree1 = new BodyFactory(undefined, [`
         766,668 716,665 649,702 602,642
         511,670 464,611 373,621
     `], 500, 1500)
-    .imageBack(require('./images/tree1-1.png'))
-    .imageFront(require('./images/tree1-2.png'));
+    .imageBack(IMG_TREE1_1)
+    .imageFront(IMG_TREE1_2);
 
-export const tire = new BodyFactory(require('./images/tire1.png'), [`
+import IMG_TIRE1 from './images/tire1.png';
+import IMG_TIRE2 from './images/tire2.png';
+
+export const tire = new BodyFactory(IMG_TIRE1, [`
         22,1 36,1 45,7 45,35 11,35 11,10
     `, `
     21,173 39,173 45,170 44,138 12,138 12,166
     `], 28, 3)
-    .imageFront(require('./images/tire2.png'))
+    .imageFront(IMG_TIRE2)
     .mass(15);
 
-export const rope = new BodyFactory(require('./images/rope.png'), `1,1 9,1 9,209 1,209`, 5, 5)
+import IMG_ROPE from './images/rope.png';
+
+export const rope = new BodyFactory(IMG_ROPE, `1,1 9,1 9,209 1,209`, 5, 5)
     .mass(1)
     .bodyType(BODYTYPE_BACKGROUND)
     .neverSleep();
+
+import IMG_CAR1 from './images/car1.png';
+import IMG_CAR2 from './images/car2.png';
+import IMG_WHEEL from './images/wheel.png';
 
 const CAR_MAX_MOTOR_SPEED = 40;
 const carMain = new BodyFactory(undefined, `
@@ -48,10 +63,10 @@ const carMain = new BodyFactory(undefined, `
         312,6 348,42 466.5,70.5 466.5,105
         7.5,105
     `, 0, 150)
-    .imageBack(require('./images/car1.png'))
-    .imageFront(require('./images/car2.png'))
+    .imageBack(IMG_CAR1)
+    .imageFront(IMG_CAR2)
     .mass(100, 3);
-const carWheel = new BodyFactory(require('./images/wheel.png'), Circle.fromString('38,38 37'), 38, 38)
+const carWheel = new BodyFactory(IMG_WHEEL, Circle.fromString('38,38 37'), 38, 38)
     .mass(12, 0.6);
 export function car(world: World, atx: number, aty: number, options?: BodyGetOptions) {
     const bBody = world.addBody(carMain.get(atx, aty, options));
@@ -98,12 +113,12 @@ export const ACH_SWING = 'swing';
 
 const ACHIEVEMENTS = [{
     id: ACH_CAR,
-    image: require('./images/wheel.png'),
+    image: IMG_WHEEL,
     label: 'Take the wheel',
     description: 'Take the car out for a spin.',
 }, {
     id: ACH_SWING,
-    image: require('./images/tire1.png'),
+    image: IMG_TIRE1,
     label: 'Ride the tire',
     description: 'Go for a swing on the tire swing.',
 }];

@@ -2,8 +2,8 @@ import { Graphics, Color } from '../graphics';
 import { getImage } from '../images';
 import { Transform, Point } from '../geometry';
 
-const TITLE1_IMAGE = require('../images/title1.png');
-const TITLE2_IMAGE = require('../images/title2.png');
+import TITLE1_IMAGE from '../images/title1.png';
+import TITLE2_IMAGE from '../images/title2.png';
 
 const TITLE_WIDTH = 572;
 const TITLE_Y1 = 150;

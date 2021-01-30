@@ -1,44 +1,38 @@
 const path = require('path');
 
-module.exports = {
-    entry: './src/start.ts',
-    mode: process.env.WEBPACK_SERVE ? 'development' : 'production',
-    devtool: 'inline-source-map',
-    output: {
-        path: path.resolve(__dirname, 'www', 'build'),
-        publicPath: './build/',
-        filename: 'game.js',
-    },
-    resolve: {
-        extensions: ['.ts', '.js'],
-    },
-    serve: {
-        content: path.resolve(__dirname, "www"),
-        devMiddleware: {
-            publicPath: '/build/',
+module.exports = () => {
+    return {
+        entry: './src/start.ts',
+        devtool: 'inline-source-map',
+        output: {
+            path: path.resolve(__dirname, 'www', 'build'),
+            filename: 'game.js',
         },
-    },
-    module: {
-        rules: [
-            {
-                test: /\.ts$/,
-                use: [ 'ts-loader' ],
-            },
-            {
-              test: /\.css$/,
-              use: [ 'style-loader', 'css-loader' ]
-            },
-            {
-              test: /\.(png|jpg|gif)$/,
-              use: [
+        resolve: {
+            extensions: ['.ts', '.js'],
+        },
+        module: {
+            rules: [
                 {
-                  loader: 'url-loader',
-                  options: {
-                    limit: 25000
-                  },
+                    test: /\.ts$/,
+                    use: [ 'ts-loader' ],
                 },
-              ],
-            },
-        ],
-    },
+                {
+                test: /\.css$/,
+                use: [ 'style-loader', 'css-loader' ]
+                },
+                {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 25000
+                    },
+                    },
+                ],
+                },
+            ],
+        },
+    };
 };

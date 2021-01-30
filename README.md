@@ -5,7 +5,7 @@
 
 #### Ragdoll physics game
 
-[Play online now!](https://sbj42.github.io/projects/mr-floppypants/)
+[Play online now!](https://sbj42.github.io/mr-floppypants/www/)
 
 ![Example Image](promo/hello.png?raw=true)
 
@@ -19,11 +19,4 @@ Explore the world by dragging Mr. Floppypants around:
 * Totally wreck the dinner table
 
 ![Example Image](promo/dinner.png?raw=true)
-
-## Running it locally
-
-~~~
-npm install
-npm start
-~~~
 

@@ -11,7 +11,11 @@ import { grass } from '../front-yard';
 const BODYTYPE_BALL = 'golf-ball';
 const BODYTYPE_CLUB = 'golf-club';
 
-export const golfCourse = new BodyFactory(require('./images/golfcourse.png'), `
+import IMG_GOLF_COURSE from './images/golfcourse.png';
+import IMG_GOLF_BALL from './images/golfball.png';
+import IMG_GOLF_CLUB from './images/golfclub.png';
+
+export const golfCourse = new BodyFactory(IMG_GOLF_COURSE, `
         0,350 86,255 123,255 176,315 306,315 312,308
         352,308 354,310 354,336 379,336 379,310 381,308
         446,310 446,400 447,310
@@ -21,14 +25,14 @@ export const golfCourse = new BodyFactory(require('./images/golfcourse.png'), `
     `, 0, 355)
     .bodyType(BODYTYPE_GROUND);
 
-export const golfBall = new BodyFactory(require('./images/golfball.png'), Circle.fromString(`10,10 9`), 10, 10)
+export const golfBall = new BodyFactory(IMG_GOLF_BALL, Circle.fromString(`10,10 9`), 10, 10)
     .mass(0.2, 1.5)
     .damping(0.2)
     .bodyType(BODYTYPE_BALL, {
         collidesWith: [BODYTYPE_GROUND, BODYTYPE_CLUB],
     });
 
-export const golfClub = new BodyFactory(require('./images/golfclub.png'), `21,3 30,3 30,88 5,95 3,89 21,81`, 0, 90)
+export const golfClub = new BodyFactory(IMG_GOLF_CLUB, `21,3 30,3 30,88 5,95 3,89 21,81`, 0, 90)
     .mass(0.3, 1.5)
     .bodyType(BODYTYPE_CLUB);
 
@@ -37,24 +41,26 @@ export const ACH_HOLE = 'hole';
 export const ACH_PAR = 'par';
 export const ACH_HOLEINONE = 'hole-in-one';
 
+import IMG_ACH_HOLE from './images/ach-hole.png';
+
 const ACHIEVEMENTS = [{
     id: ACH_GOLF,
-    image: require('./images/golfclub.png'),
+    image: IMG_GOLF_CLUB,
     label: 'Fore!',
     description: 'Hit the golf ball with the golf club.',
 }, {
     id: ACH_HOLE,
-    image: require('./images/ach-hole.png'),
+    image: IMG_ACH_HOLE,
     label: 'In the hole',
     description: 'Get the golf ball into the hole.',
 }, {
     id: ACH_PAR,
-    image: require('./images/ach-hole.png'),
+    image: IMG_ACH_HOLE,
     label: 'Par',
     description: 'Use 2 or fewer strokes to get the ball into the hole.',
 }, {
     id: ACH_HOLEINONE,
-    image: require('./images/ach-hole.png'),
+    image: IMG_ACH_HOLE,
     label: 'Hole in one',
     description: 'Get the ball into the hole with only one stroke.',
 }];

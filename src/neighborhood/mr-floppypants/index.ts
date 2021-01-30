@@ -11,39 +11,51 @@ const BODYTYPE = 'mr-floppypants';
 
 const PAIN_VELOCITY = 900;
 
-export const head = new BodyFactory(require('./images/head.png'), '2,33 10,12 24,5 40,12 46,33 34,57 15,57', 25, 32)
+import IMG_HEAD from './images/head.png';
+import IMG_SHIRT_MIDDLE from './images/shirt-middle.png';
+import IMG_ARM_LEFT_UPPER from './images/arm-left-upper.png';
+import IMG_ARM_LEFT_LOWER from './images/arm-left-lower.png';
+import IMG_HAND_LEFT from './images/hand-left.png';
+import IMG_PANTS_TOP from './images/pants-top.png';
+import IMG_PANTS_LEFT_UPPER from './images/pants-left-upper.png';
+import IMG_PANTS_LEFT_LOWER from './images/pants-left-lower.png';
+import IMG_SHOE_LEFT from './images/shoe-left.png';
+
+export const head = new BodyFactory(IMG_HEAD, '2,33 10,12 24,5 40,12 46,33 34,57 15,57', 25, 32)
     .bodyType(BODYTYPE)
     .mass(2, 0.9);
-export const chest = new BodyFactory(require('./images/shirt-middle.png'), '8,2 53,2 53,58 8,58', 30, 6)
+export const chest = new BodyFactory(IMG_SHIRT_MIDDLE, '8,2 53,2 53,58 8,58', 30, 6)
     .bodyType(BODYTYPE)
     .mass(7.5, 0.9);
-export const arm1 = new BodyFactory(require('./images/arm-left-upper.png'), '28,3 31,13 7,28 2,21', 30, 6)
+export const arm1 = new BodyFactory(IMG_ARM_LEFT_UPPER, '28,3 31,13 7,28 2,21', 30, 6)
     .bodyType(BODYTYPE)
     .mass(2);
-export const arm2 = new BodyFactory(require('./images/arm-left-lower.png'), '25,3 29,10 7,27 3,22', 27, 6)
+export const arm2 = new BodyFactory(IMG_ARM_LEFT_LOWER, '25,3 29,10 7,27 3,22', 27, 6)
     .bodyType(BODYTYPE)
     .mass(1.5);
-export const hand = new BodyFactory(require('./images/hand-left.png'), '11,3 21,14 10,25 1,15', 18, 9)
+export const hand = new BodyFactory(IMG_HAND_LEFT, '11,3 21,14 10,25 1,15', 18, 9)
     .bodyType(BODYTYPE)
     .mass(1.5);
-export const seat = new BodyFactory(require('./images/pants-top.png'), '9,2 42,2 50,29 3,29', 26, 4)
+export const seat = new BodyFactory(IMG_PANTS_TOP, '9,2 42,2 50,29 3,29', 26, 4)
     .bodyType(BODYTYPE)
     .mass(5);
-export const leg1 = new BodyFactory(require('./images/pants-left-upper.png'), '6,2 21,5 16,40 2,37', 14, 6)
+export const leg1 = new BodyFactory(IMG_PANTS_LEFT_UPPER, '6,2 21,5 16,40 2,37', 14, 6)
     .bodyType(BODYTYPE)
     .mass(2);
-export const leg2 = new BodyFactory(require('./images/pants-left-lower.png'), '10,2 24,4 24,41 8,40', 17, 6)
+export const leg2 = new BodyFactory(IMG_PANTS_LEFT_LOWER, '10,2 24,4 24,41 8,40', 17, 6)
     .bodyType(BODYTYPE)
     .mass(2, 1.4);
-export const foot = new BodyFactory(require('./images/shoe-left.png'), '21,3 35,4 36,15 3,15 5,10', 30, 5)
+export const foot = new BodyFactory(IMG_SHOE_LEFT, '21,3 35,4 36,15 3,15 5,10', 30, 5)
     .bodyType(BODYTYPE)
     .mass(1, 1.5);
 
 export const ACH_OUCH = 'ouch';
 
+import IMG_HEAD_OUCH from './images/head-ouch.png';
+
 const ACHIEVEMENTS = [{
     id: ACH_OUCH,
-    image: require('./images/head-ouch.png'),
+    image: IMG_HEAD_OUCH,
     label: 'Ouch!',
     description: 'Bump into something hard enough to hurt.',
 }];
@@ -126,9 +138,9 @@ export default function(world: World, atx: number, aty: number) {
         if (painTimer) {
             clearTimeout(painTimer);
         }
-        actor.head.image(require('./images/head-ouch.png'));
+        actor.head.image(IMG_HEAD_OUCH);
         painTimer = setTimeout(() => {
-            actor.head.image(require('./images/head.png'));
+            actor.head.image(IMG_HEAD);
         }, 1500);
     });
 

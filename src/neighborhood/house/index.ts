@@ -12,17 +12,30 @@ import {
 } from '../../core';
 import { PolygonDrawable } from '../../core/util/polygon-drawable';
 
-export const floor1 = new BodyFactory(require('./images/floor1.png'), '0,0 50,0 50,50 0,50', 25, 25);
-export const floor4 = new BodyFactory(require('./images/floor4.png'), '0,0 200,0 200,50 0,50', 25, 25);
-export const floor9 = new BodyFactory(require('./images/floor9.png'), '0,0 450,0 450,50 0,50', 25, 25);
-export const floor15 = new BodyFactory(require('./images/floor15.png'), '0,0 750,0 750,50 0,50', 25, 25);
+import IMG_FLOOR1 from './images/floor1.png';
+import IMG_FLOOR4 from './images/floor4.png';
+import IMG_FLOOR9 from './images/floor9.png';
+import IMG_FLOOR15 from './images/floor15.png';
 
-export const wall3 = new BodyFactory(require('./images/wall3.png'), '1,2 28,2 28,146 1,146', 15, 25);
-export const wall5 = new BodyFactory(require('./images/wall5.png'), '1,2 28,2 28,242 1,242', 15, 25);
+import IMG_WALL3 from './images/wall3.png';
+import IMG_WALL5 from './images/wall5.png';
 
-export const window = new BodyFactory(require('./images/window.png'), undefined, 10, 207);
+import IMG_WINDOW from './images/window.png';
+import IMG_STAIRS from './images/stairs.png';
+import IMG_ROOF from './images/roof.png';
+import IMG_CHIMNEY from './images/chimney.png';
 
-export const stairs = new BodyFactory(require('./images/stairs.png'), `
+export const floor1 = new BodyFactory(IMG_FLOOR1, '0,0 50,0 50,50 0,50', 25, 25);
+export const floor4 = new BodyFactory(IMG_FLOOR4, '0,0 200,0 200,50 0,50', 25, 25);
+export const floor9 = new BodyFactory(IMG_FLOOR9, '0,0 450,0 450,50 0,50', 25, 25);
+export const floor15 = new BodyFactory(IMG_FLOOR15, '0,0 750,0 750,50 0,50', 25, 25);
+
+export const wall3 = new BodyFactory(IMG_WALL3, '1,2 28,2 28,146 1,146', 15, 25);
+export const wall5 = new BodyFactory(IMG_WALL5, '1,2 28,2 28,242 1,242', 15, 25);
+
+export const window = new BodyFactory(IMG_WINDOW, undefined, 10, 207);
+
+export const stairs = new BodyFactory(IMG_STAIRS, `
         0,0 50,0 50,50 100,50
         100,100 150,100 150,150 200,150
         200,200 250,200 250,250 300,250
@@ -31,10 +44,10 @@ export const stairs = new BodyFactory(require('./images/stairs.png'), `
         500,500 550,500 550,549 500,549
         0,51
     `, 25, 525);
-export const roof = new BodyFactory(require('./images/roof.png'), '0,51 99,0 115,13 17,63', 0, 30);
+export const roof = new BodyFactory(IMG_ROOF, '0,51 99,0 115,13 17,63', 0, 30);
 
 const chimney1 = new BodyFactory(undefined, '4,5 24,5 24,191 4,203', 0, 164)
-    .imageFront(require('./images/chimney.png'));
+    .imageFront(IMG_CHIMNEY);
 const chimney2 = new BodyFactory(undefined, '97,5 117,5 117,147 97,152', 0, 164);
 export function chimney(world: World, atx: number, aty: number, options?: BodyGetOptions) {
     const b1 = world.addBody(chimney1.get(atx, aty, options));
@@ -55,50 +68,66 @@ export function chimney(world: World, atx: number, aty: number, options?: BodyGe
     b2.on('contact', contact);
 }
 
-export const ball = new BodyFactory(require('./images/ball.png'), Circle.fromString('25,25 24'), 25, 25)
+import IMG_BALL from './images/ball.png';
+import IMG_BED from './images/bed.png';
+import IMG_PILLOW from './images/pillow.png';
+import IMG_TABLE from './images/table.png';
+import IMG_GLASS from './images/glass.png';
+import IMG_PLATE from './images/plate.png';
+import IMG_CHAIR from './images/chair.png';
+
+export const ball = new BodyFactory(IMG_BALL, Circle.fromString('25,25 24'), 25, 25)
     .mass(0.5, 0.25, MATERIAL_BOUNCY);
 
-export const bed = new BodyFactory(require('./images/bed.png'), `
+export const bed = new BodyFactory(IMG_BED, `
         0,104 0,-1 13,-1 13,28
         283,28 283,25 292,25 292,104
         283,104 283,73 9,73 9,104
     `, 0, 104)
     .mass(120, 3);
-export const pillow = new BodyFactory(require('./images/pillow.png'), '2,14 25,18 48,14 48,6 25,2 2,6', 0, 20)
+export const pillow = new BodyFactory(IMG_PILLOW, '2,14 25,18 48,14 48,6 25,2 2,6', 0, 20)
     .mass(0.1);
 
-export const table = new BodyFactory(require('./images/table.png'), `
+export const table = new BodyFactory(IMG_TABLE, `
         3,3 197,3 197,10 153,10
         153,99 144,99 144,24 55,24
         55,99 46,99 46,10 3,10
     `, 0, 100)
     .mass(100, 2);
-export const glass = new BodyFactory(require('./images/glass.png'), '2,2 11,2 11,23 2,23', 0, 24)
+export const glass = new BodyFactory(IMG_GLASS, '2,2 11,2 11,23 2,23', 0, 24)
     .mass(1, 1.2);
-export const plate = new BodyFactory(require('./images/plate.png'), '3,3 44,3 29,12 17,12', 0, 13)
+export const plate = new BodyFactory(IMG_PLATE, '3,3 44,3 29,12 17,12', 0, 13)
     .mass(1, 2);
-export const chair = new BodyFactory(require('./images/chair.png'), `
+export const chair = new BodyFactory(IMG_CHAIR, `
         2,137 2,1 9,1 9,77 53,77 53,137 46,137 46,111 9,111 9,137
     `, 1, 138)
     .mass(30, 2);
 
-export const bathtub = new BodyFactory(require('./images/bathtub1.png'), `
+import IMG_BATHTUB1 from './images/bathtub1.png';
+import IMG_BATHTUB2 from './images/bathtub2.png';
+import IMG_SINK1 from './images/sink1.png';
+import IMG_SINK2 from './images/sink2.png';
+
+export const bathtub = new BodyFactory(IMG_BATHTUB1, `
         6,5 21,4 46,72 200,72
         238,11 251,11 206,100 183,100
         183,88 62,88 62,100 42,100
         1,18
     `, 1, 102)
     .mass(300, 3)
-    .imageFront(require('./images/bathtub2.png'));
-export const sink = new BodyFactory(require('./images/sink1.png'), `
+    .imageFront(IMG_BATHTUB2);
+export const sink = new BodyFactory(IMG_SINK1, `
         3,31 11,3 27,5 18,30
         21,58 60,58 84,31 92,33
         78,61 51,70 80,140 1,140
     `, 1, 142)
     .mass(250, 3)
-    .imageFront(require('./images/sink2.png'));
+    .imageFront(IMG_SINK2);
 
-export const hatch = new BodyFactory(require('./images/hatch.png'), `
+import IMG_HATCH from './images/hatch.png';
+import IMG_BOX from './images/box.png';
+
+export const hatch = new BodyFactory(IMG_HATCH, `
         4,10 202,10 207,4 225,4
         230,10 246,10 246,30 230,30
         225,36 207,36 202,30 4,30
@@ -106,26 +135,29 @@ export const hatch = new BodyFactory(require('./images/hatch.png'), `
     .mass(50)
     .ignoreGravity();
 
-export const box = new BodyFactory(require('./images/box.png'), ` 0,0 97,0 97,97 0,97 `, 48, 48)
+export const box = new BodyFactory(IMG_BOX, ` 0,0 97,0 97,97 0,97 `, 48, 48)
     .mass(40, 2);
 
 export const ACH_BATH = 'bath';
 export const ACH_CHIMNEY = 'chimney';
 export const ACH_FOOTBALL = 'football';
 
+import IMG_ACH_CHIMNEY from './images/ach-chimney.png';
+import IMG_ACH_BATH from './images/ach-bath.png';
+
 const ACHIEVEMENTS = [{
     id: ACH_FOOTBALL,
-    image: require('./images/ball.png'),
+    image: IMG_BALL,
     label: 'Football',
     description: 'Kick the soccer ball (with a foot)',
 }, {
     id: ACH_CHIMNEY,
-    image: require('./images/ach-chimney.png'),
+    image: IMG_ACH_CHIMNEY,
     label: 'A tight spot',
     description: 'Squeeze into the chimney',
 }, {
     id: ACH_BATH,
-    image: require('./images/ach-bath.png'),
+    image: IMG_ACH_BATH,
     label: 'Take a bath',
     description: 'Lay down in the bathtub',
 }];

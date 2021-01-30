@@ -41,25 +41,35 @@ const NES_END = `
     0,550 0,600 600,600 600,0 0,0 0,50
 `;
 
-export const caveW = new BodyFactory(undefined, [NES_END], 300, 300)
-    .imageBack(require('./images/cave-w.png'));
-export const caveWS = new BodyFactory(undefined, [WS_TURN, SW_CORNER], 300, 300)
-    .imageBack(require('./images/cave-ws.png'));
-export const caveWE = new BodyFactory(undefined, [N_EDGE, S_EDGE], 300, 300)
-    .imageBack(require('./images/cave-we.png'));
-export const caveWSE = new BodyFactory(undefined, [N_EDGE, SW_CORNER, SE_CORNER], 300, 300)
-    .imageBack(require('./images/cave-wse.png'));
-export const caveWSEN = new BodyFactory(undefined, [NW_CORNER, NE_CORNER, SW_CORNER, SE_CORNER], 300, 300)
-    .imageBack(require('./images/cave-wsen.png'));
+import IMG_CAVE_W from './images/cave-w.png';
+import IMG_CAVE_WS from './images/cave-ws.png';
+import IMG_CAVE_WE from './images/cave-we.png';
+import IMG_CAVE_WSE from './images/cave-wse.png';
+import IMG_CAVE_WSEN from './images/cave-wsen.png';
 
-export const rock1 = new BodyFactory(require('./images/rock1.png'), `
+export const caveW = new BodyFactory(undefined, [NES_END], 300, 300)
+    .imageBack(IMG_CAVE_W);
+export const caveWS = new BodyFactory(undefined, [WS_TURN, SW_CORNER], 300, 300)
+    .imageBack(IMG_CAVE_WS);
+export const caveWE = new BodyFactory(undefined, [N_EDGE, S_EDGE], 300, 300)
+    .imageBack(IMG_CAVE_WE);
+export const caveWSE = new BodyFactory(undefined, [N_EDGE, SW_CORNER, SE_CORNER], 300, 300)
+    .imageBack(IMG_CAVE_WSE);
+export const caveWSEN = new BodyFactory(undefined, [NW_CORNER, NE_CORNER, SW_CORNER, SE_CORNER], 300, 300)
+    .imageBack(IMG_CAVE_WSEN);
+
+import IMG_ROCK1 from './images/rock1.png';
+
+export const rock1 = new BodyFactory(IMG_ROCK1, `
         19,12 37,6 62,11 78,25 93,29 87,67 91,85
         85,95 38,85 18,94 7,84 10,62 6,43 16,30
     `, 50, 50)
     .mass(50, 3);
 
+import IMG_CAVE_POOL from './images/cavepool.png';
+
 export const pool = new BodyFactory(undefined, undefined, 300, 300)
-    .imageFront(require('./images/cavepool.png'));
+    .imageFront(IMG_CAVE_POOL);
 
 export function cavepool(world: World, atx: number, aty: number) {
     world.addBody(pool.get(atx, aty));

@@ -5,8 +5,8 @@ import { Game, VERSION } from '../game';
 import { achievementCard } from './achievement-card';
 import { CARD_WIDTH } from './toast';
 
-const TITLE1_IMAGE = require('../images/title1.png');
-const TITLE2_IMAGE = require('../images/title2.png');
+import TITLE1_IMAGE from '../images/title1.png';
+import TITLE2_IMAGE from '../images/title2.png';
 
 const TITLE_WIDTH = 572;
 const TITLE_Y = 20;

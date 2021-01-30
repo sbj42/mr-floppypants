@@ -2,16 +2,16 @@ import { Drawable, Window, Graphics, World, getImage, Transform, Point, Size, Li
 
 const SKY_GRADIENT = LinearGradient.fromSimple(0, -6000, '#abd1f9', 0, 0, '#71ace8');
 
-const SUN_IMAGE = require('./images/sun.png');
+import SUN_IMAGE from './images/sun.png';
 const SUN_IMAGE_ANCHOR = new Point(98, 108);
 const SUN_POSITION = new Size(0.25, 0.25);
 
-const CLOUD1_IMAGE = require('./images/cloud1.png');
+import CLOUD1_IMAGE from './images/cloud1.png';
 const CLOUD1_SPEED = 300; // seconds per pass
 const CLOUD1_POSITION = 0.15;
 const CLOUD1_IMAGE_ANCHOR = new Point(250, 100);
 
-const CLOUD2_IMAGE = require('./images/cloud2.png');
+import CLOUD2_IMAGE from './images/cloud2.png';
 const CLOUD2_SPEED = 500; // seconds per pass
 const CLOUD2_POSITION = 0.35;
 const CLOUD2_IMAGE_ANCHOR = new Point(250, 100);
